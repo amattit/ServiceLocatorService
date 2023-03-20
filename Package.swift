@@ -4,13 +4,13 @@
 import PackageDescription
 
 let package = Package(
-    name: "ServiceLocatorService",
+    name: "SLServiceLocator",
     platforms: [.iOS(.v16)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "ServiceLocatorService",
-            targets: ["ServiceLocatorService"]),
+            name: "SLServiceLocator",
+            targets: ["SLServiceLocator"]),
         .plugin(name: "FindNotImplementedServices", targets: ["FindNotImplementedServices"])
     ],
     dependencies: [
@@ -21,11 +21,11 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "ServiceLocatorService",
+            name: "SLServiceLocator",
             dependencies: []),
         .testTarget(
             name: "ServiceLocatorTests",
-            dependencies: ["ServiceLocatorService"]),
+            dependencies: ["SLServiceLocator"]),
         .plugin(
             name: "FindNotImplementedServices", capability: .command(
                 intent: .custom(
@@ -33,7 +33,7 @@ let package = Package(
                     description: "Generate NotImplemented.txt file based on git log"
                 ),
                 permissions: [
-                    .writeToPackageDirectory(reason: "This command write the new CONTRIBUTORS.txt to the source root")
+                    .writeToPackageDirectory(reason: "This command write the new NotImplemented.txt to the source root")
                 ]
             )
         )

@@ -1,5 +1,5 @@
 import XCTest
-@testable import ServiceLocatorService
+@testable import SLServiceLocator
 
 final class ServiceLocatorTests: XCTestCase {
     func testExample() throws {
